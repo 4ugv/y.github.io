@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>公司简介</title>
+		<link rel="stylesheet" href="css/首页.css" />
+		<link rel="stylesheet" href="css/公司简介.css" />
+		<style>
+			.introduction {
+				width: 70%;
+				margin-left: 15%;
+				height: 700px;
+				border-top: 2px solid lightslategray;
+				background-image: url("img/登录图片1.jpg");
+				background-size: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav_div">
+			<div class="d-center">
+				<div class="navL">
+					壹橙欢迎您！
+					<a href="js/登录.html" style="color: blue;">请登录</a>
+					<a class="style-red" href="js/注册页面1.html" style="color: red;">免费注册</a>
+				</div>
+				<div class="navR">
+					<ul>
+						<li>
+							<a href="#">我的订单</a>
+						</li>
+						<li>
+							<a href="用户中心.html">我的壹橙</a>
+						</li>
+						<li>
+							<a href="#">壹橙会员</a>
+						</li>
+						<li>
+							<a href="#">企业采购</a>
+						</li>
+						<li>
+							<a href="#">关注壹橙</a>
+						</li>
+						<li>
+							<a href="#">客户服务</span></a>
+						</li>
+						<li>
+							<a class="style-border-none" href="#">网站导航</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="head d-center">
+			<div class="logo">
+				<img src="img/欢迎你.gif" width="250px" height="100px"/>
+			</div>
+			<div class="head-search">
+				<input type="text" placeholder="请输入商品..." />
+				<button>搜索</button>
+				<ul>
+					<li><a class="style-red" href="#">优惠购首发</a></li>
+					<li><a href="#">特价优惠</a></li>
+					<li><a href="#">优惠团购</a></li>
+					<li><a href="#">满99减30</a></li>
+					<li><a href="#">日常用品</a></li>
+					<li><a href="#">饮料</a></li>
+					<li><a href="#">奶制品</a></li>
+				</ul>
+			</div>
+			<div class="shopCar">
+				<span class="car"><img src="img/购物车.png" width="27px" height="27px"/></span>
+				<span><a href="购物车.html">我的购物车</a></span>
+			</div>
+		</div>
+		<div class="bos">
+			<div class="div-carousel">
+				<div class="imglist">
+					<div class="div-carousel-item" style="opacity: 0"><a href=""><img src="img/huo.jpg"
+								height="420px"></a></div>
+					<div class="div-carousel-item" style="opacity: 0"><a href=""><img src="img/公司图片1.jpg"
+								height="420px"></a></div>
+					<div class="div-carousel-item" style="opacity: 0"><a href=""><img src="img/公司注册页面图片.jpg"
+								height="420px"></a></div>
+					<div class="div-carousel-item" style="opacity: 0"><a href=""><img src="img/公司图片20231111214020.jpg"
+								height="420px"></a></div>
+					<div class="div-carousel-item" style="opacity: 0"><a href=""><img src="img/logo111.jpg"
+								height="420px"></a></div>
+				</div>
+				<div class="div-carousel-focus">
+					<span class="active"></span>
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+					<span class=""></span>
+				</div>
+			</div>
+		</div>
+		<script>
+			var imgSum = 5
+			var index = 0
+			var prevIndex = imgSum - 1
+			var carouselImgList = document.querySelectorAll(".div-carousel-item")
+			var carouselSpan = document.querySelectorAll('.div-carousel-focus span')
+			var autoCarousel
+
+			function showImg(showIndex, hideIndex) {
+				for (let index = 0; index < carouselSpan.length; index++) {
+					carouselSpan[index].classList.remove("active")
+				}
+				carouselSpan[showIndex].classList.add("active")
+
+				carouselImgList[showIndex].style.opacity = '1'
+				carouselImgList[hideIndex].style.opacity = '0'
+			}
+
+			function startCarousel() {
+				autoCarousel = setInterval(function() {
+					prevIndex = index
+					index = (imgSum - 1 == index) ? 0 : index + 1
+					showImg(index, prevIndex)
+				}, 3000)
+			}
+
+			function initListener() {
+				carouselSpan.forEach(function(el, key) {
+					el.addEventListener("click", function(e) {
+						clearInterval(autoCarousel)
+						showImg(key, index)
+						index = key
+						startCarousel()
+					})
+				})
+			}
+
+			function init() {
+				initListener()
+				showImg(index, prevIndex)
+				startCarousel()
+			}
+			init()
+		</script>
+		<div class="nav">
+			<ul class="navlist">
+				<li class="bibt11"><a href="首页.html">返回首页</a></li>
+				<li class="bibt11"><a href="">公司简介</a></li>
+				<li class="bibt11"><a href="slei/slie/商品列表.html">产品介绍</a>
+				</li>
+				<li class="bibt11"><a href="">业务详情</a>
+					<ul class="drop1">
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+					</ul>
+				</li>
+				<li class="bibt11"><a href="">设计团队</a>
+					<ul class="drop1">
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+					</ul>
+				</li>
+				<li class="bibt11"><a href="">未来展望</a>
+					<ul class="drop1">
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+					</ul>
+				</li>
+				<li class="bibt11"><a href="">联系我们</a>
+					<ul class="drop1">
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+						<li><a href="">下拉框</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="introduction">
+			<table>
+				<tr>
+					<h2 style="color: white;">-----公司介绍-----</h2>
+					<h2 style="color: white;">COMPANY INTRODUCTION</h2>
+				</tr>
+				<div class="bg">
+					<table>
+						<tr>
+							<td align="center" colspan="2"><img src="img/公司图片20231111214020.jpg" width="60%" height="50%" />
+							</td>
+							<td style="color: white;">贵州凯睿晟商贸有限公司成立于2020年12月03日,注册于贵州省贵阳市南明区水口寺街道办事处法定代表人为孙孔义。经营范围包括酒、饮料及茶叶批发；酒类经营；食品销售（仅销售预包装食品)
+								涉及许可经营项目，应取得相关部门许可后方可经营）</td>
+						</tr>
+						<tr>
+							<td style="color: white;">公司简介（文）经营范围包括法律、法规、国务院决定规定禁止的不得经营；会议及展览服务；企业管理（依法须经批准的项目，经相关部门批准后方可开展经营活动）涉及许可经营项目，应取得相关部门许可后方可经营）
+							</td>
+							<td align="center" colspan="2"><img src="img/公司图片1.jpg" width="60%" height="50%" /></td>
+						</tr>
+					</table>
+				</div>
+			</table>
+		</div>
+		<div class="readme-div">
+			<div class="d-center">
+				<ul>
+					<li><a href="#">关于我们 </a>|</li>
+					<li><a href="#">联系我们 </a>|</li>
+					<li><a href="#">联系客服 </a>|</li>
+					<li><a href="#">商家入驻 </a>|</li>
+					<li><a href="#">营销中心 </a>|</li>
+					<li><a href="#">手机壹橙 </a>|</li>
+					<li><a href="#">友情链接 </a>|</li>
+					<li><a href="#">销售联盟 </a>|</li>
+					<li><a href="#">壹橙社区 </a>|</li>
+					<li><a href="#">English Site </a>|</li>
+					<li><a href="#">Contact U</a></li>
+				</ul>
+				<p>地址：贵州省贵阳市南明区水口寺街道办事处 邮编：100096 电话：400-618-4000 传真：010-82935100 邮箱: zhanghj+itcast.cn </p>
+				<p>版权属于网页设计第五小组所有</p>
+			</div>
+		</div>
+	</body>
+</html>
